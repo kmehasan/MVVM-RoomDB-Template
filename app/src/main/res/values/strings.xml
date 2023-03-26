@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RoomDB Template</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_new_student">Add New Student</string>
+    <string name="add_new_teacher">Add New Teacher</string>
+    <string name="add_new_course">Add New Course</string>
+</resources>
