@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.github.kmehasan.roomdbtemplate.databinding.UserRowViewHolderBinding
 import io.github.kmehasan.roomdbtemplate.room.Course
+import io.github.kmehasan.roomdbtemplate.room.TeacherAssociateWithCourse
 import io.github.kmehasan.roomdbtemplate.view.adapter.holder.CourseHolder
 
-class CourseAdapter(private val list : List<Course>, val callback:CourseOnClick):RecyclerView.Adapter<CourseHolder>() {
+class CourseAdapter(private val list : List<TeacherAssociateWithCourse>, val callback:CourseOnClick):RecyclerView.Adapter<CourseHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseHolder {
         val view = UserRowViewHolderBinding.inflate(LayoutInflater.from(parent.context),parent,false)

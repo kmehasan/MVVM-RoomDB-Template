@@ -13,7 +13,7 @@ class Repository(context:Context) {
     // Select
     fun getStudent():List<User> = dao.getStudentList()
     fun getTeacherList():List<User> = dao.getTeacherList()
-    fun getAllCourses():List<Course> = dao.getAllCourses()
+    fun getAllCourses():List<TeacherAssociateWithCourse> = dao.getAllCourses()
     fun getCoursesOfTeacher(uid:Int):List<Course> = dao.getCoursesOfTeacher(uid)
 
     // Delete

@@ -6,14 +6,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.github.kmehasan.roomdbtemplate.databinding.UserRowViewHolderBinding
 import io.github.kmehasan.roomdbtemplate.room.Course
+import io.github.kmehasan.roomdbtemplate.room.TeacherAssociateWithCourse
 import io.github.kmehasan.roomdbtemplate.view.adapter.CourseOnClick
 
 class CourseHolder(val view: UserRowViewHolderBinding) :RecyclerView.ViewHolder(view.root) {
-    fun bind(course_with_teacher: Course, callback: CourseOnClick){
-        val course = course_with_teacher
+    fun bind(course_with_teacher: TeacherAssociateWithCourse, callback: CourseOnClick){
+        val course = course_with_teacher.course
         view.id.text = course.cid.toString()
         view.name.text = course.c_name
-//        view.age.text = course_with_teacher.teacher.name
+        view.age.text = course_with_teacher.teacher.name
         view.card.setOnClickListener { callback.onClick(course) }
         view.card.setOnLongClickListener {
             callback.onLongClick(course)

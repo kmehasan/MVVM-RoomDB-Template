@@ -48,7 +48,8 @@ class UserDetailsFragment : Fragment(), CourseOnClick {
             showBottomSheet()
         }
         mainViewModel.getCoursesOfStudent(user.uid).observe(viewLifecycleOwner){
-            binding.rv.adapter = CourseAdapter(it.course,this)
+//            binding.rv.adapter = CourseAdapter(it,this)
+            Log.d("TAG", "getCoursesOfStudent: "+it)
         }
 
     }
@@ -56,14 +57,14 @@ class UserDetailsFragment : Fragment(), CourseOnClick {
         mainViewModel.getAllCourses().observe(viewLifecycleOwner){
             var selectedCourse:Course? = null
             val adapter =
-                ArrayAdapter(requireContext(), android.R.layout.select_dialog_item, it.map { course -> return@map course.c_name })
+                ArrayAdapter(requireContext(), android.R.layout.select_dialog_item, it.map { course -> return@map course.course.c_name })
 
             val bottomSheet = BottomSheetDialog(requireContext())
             bottomSheet.setContentView(R.layout.add_course_to_user_bottom_sheet)
             val course = bottomSheet.findViewById<AutoCompleteTextView>(R.id.courseSelector)
             course?.setAdapter(adapter)
             course?.setOnItemClickListener { adapterView, view, i, l ->
-                selectedCourse = it[i]
+                selectedCourse = it[i].course
             }
             bottomSheet.findViewById<Button>(R.id.add)?.setOnClickListener {
                 if(selectedCourse!=null){
@@ -80,10 +81,10 @@ class UserDetailsFragment : Fragment(), CourseOnClick {
     }
 
     override fun onClick(course: Course) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onLongClick(course: Course) {
-        TODO("Not yet implemented")
+
     }
 }

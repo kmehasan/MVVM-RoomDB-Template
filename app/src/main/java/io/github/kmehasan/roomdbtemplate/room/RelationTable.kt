@@ -2,15 +2,15 @@ package io.github.kmehasan.roomdbtemplate.room
 
 import androidx.room.*
 
-//data class TeacherAssociateWithCourse(
-//    @Embedded
-//    val course: Course,
-//    @Relation(
-//        parentColumn = "teacher_id",
-//        entityColumn = "uid"
-//    )
-//    val teacher:User
-//)
+data class TeacherAssociateWithCourse(
+    @Embedded
+    val course: Course,
+    @Relation(
+        parentColumn = "teacher_id",
+        entityColumn = "uid"
+    )
+    val teacher:User
+)
 
 data class CourseListOfStudent(
     @Embedded
@@ -25,7 +25,17 @@ data class CourseListOfStudent(
             entityColumn = "course_id"
         )
     )
-    val course: List<Course>
+    val course: List<Course>,
+    @Relation(
+        parentColumn = "uid",
+        entityColumn = "uid",
+        associateBy = Junction(
+            value = Course::class,
+            parentColumn = "cid",
+            entityColumn = "teacher_id"
+        )
+    )
+    val teacher: List<User>
 )
 
 

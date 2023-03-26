@@ -25,7 +25,7 @@ interface DAO {
     fun createCourse(course:Course)
 
     @Query("SELECT * FROM course_table")
-    fun getAllCourses():List<Course>
+    fun getAllCourses():List<TeacherAssociateWithCourse>
 
     @Query("DELETE FROM course_table WHERE cid = :cid")
     fun deleteCourse(cid:Int)
