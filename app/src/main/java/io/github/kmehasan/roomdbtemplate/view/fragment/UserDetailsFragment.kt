@@ -48,8 +48,7 @@ class UserDetailsFragment : Fragment(), CourseOnClick {
             showBottomSheet()
         }
         mainViewModel.getCoursesOfStudent(user.uid).observe(viewLifecycleOwner){
-//            binding.rv.adapter = CourseAdapter(it,this)
-            Log.d("TAG", "getCoursesOfStudent: "+it)
+            binding.rv.adapter = CourseAdapter(it,this)
         }
 
     }

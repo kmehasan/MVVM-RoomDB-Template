@@ -69,8 +69,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
         return teacherList
     }
-    fun getCoursesOfStudent(uid:Int):MutableLiveData<CourseListOfStudent>{
-        val couresOfStudent:MutableLiveData<CourseListOfStudent> = MutableLiveData()
+    fun getCoursesOfStudent(uid:Int):MutableLiveData<List<TeacherAssociateWithCourse>>{
+        val couresOfStudent:MutableLiveData<List<TeacherAssociateWithCourse>> = MutableLiveData()
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             couresOfStudent.postValue(repository.getCourseForStudent(uid))
         }

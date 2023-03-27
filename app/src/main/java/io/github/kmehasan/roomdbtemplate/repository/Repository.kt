@@ -20,7 +20,7 @@ class Repository(context:Context) {
     fun deleteUser(uid:Int) = dao.deleteUser(uid)
 
     // Get Course list For Student
-    fun getCourseForStudent(uid:Int):CourseListOfStudent = dao.getCourseForStudent(uid)
+    fun getCourseForStudent(uid:Int):List<TeacherAssociateWithCourse> = dao.getCourseForStudent(uid)
 
     // Get Students for course
     fun getStudentsForCourse(cid:Int):StudentListOfCourse = dao.getStudentsForCourse(cid)

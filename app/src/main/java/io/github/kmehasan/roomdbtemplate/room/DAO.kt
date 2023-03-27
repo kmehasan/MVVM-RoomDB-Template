@@ -40,8 +40,8 @@ interface DAO {
 
     // Get courses for student
     @Transaction
-    @Query("SELECT * FROM user_table WHERE uid = :uid")
-    fun getCourseForStudent(uid:Int):CourseListOfStudent
+    @Query("SELECT * FROM course_table WHERE cid IN (SELECT course_id FROM mark_table WHERE student_id = :uid)")
+    fun getCourseForStudent(uid:Int):List<TeacherAssociateWithCourse>
 
 
     // Get Students for course
